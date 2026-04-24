@@ -112,6 +112,11 @@ body {
 @keyframes fadeUp { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform: translateY(0);} }
 .fade-up { animation: fadeUp .7s cubic-bezier(.2,.8,.2,1) both; }
 
+@keyframes bci-flow-wire { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -20; } }
+@keyframes bci-flow-line { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -32; } }
+.bci-wire-pulse { stroke-dasharray: 6 14; animation: bci-flow-wire 1.5s linear infinite; }
+.bci-line-pulse { stroke-dasharray: 10 22; animation: bci-flow-line 2s linear infinite; }
+
 .ring-svg { display:block; }
 .ring { cursor:pointer; }
 

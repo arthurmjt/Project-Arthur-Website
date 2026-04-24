@@ -69,8 +69,8 @@ export function MePage() {
             {t.meEyebrow}
           </div>
 
-          <div className="mt-8 grid grid-cols-12 gap-10 items-start">
-            <div className="col-span-12 md:col-span-7">
+          <div className="mt-8 grid grid-cols-12 gap-x-10 gap-y-6 md:gap-y-0 items-start">
+            <div className="order-1 col-span-12 md:col-span-7 md:col-start-1 md:row-start-1">
               <h1
                 className="f-display text-[clamp(56px,8.4vw,132px)] leading-[0.92] text-[color:var(--ink)]"
                 style={{ letterSpacing: "-0.035em", fontFamily: nameFirstFont, fontWeight: 700 }}
@@ -103,15 +103,13 @@ export function MePage() {
                 </div>
               )}
               <div className="eyebrow mt-5 text-[color:var(--ink-3)]">{t.roleLine}</div>
-
-              {renderBio(t.bio)}
             </div>
 
             <div
-              className="col-span-12 md:col-span-5 flex flex-col items-center gap-6 md:sticky md:top-24"
+              className="order-2 col-span-12 md:col-span-5 md:col-start-8 md:row-start-1 md:row-span-2 flex flex-col items-center gap-6 md:sticky md:top-24"
               style={{ perspective: "1000px" }}
             >
-              <TiltCard className="relative w-[300px] h-[380px] md:w-[360px] md:h-[440px]">
+              <TiltCard className="relative w-full max-w-[340px] aspect-[300/380] md:w-[360px] md:h-[440px] md:max-w-none md:aspect-auto">
                 <div
                   aria-hidden
                   className="absolute inset-0"
@@ -163,7 +161,7 @@ export function MePage() {
               <TiltCard
                 glint
                 liftZ={12}
-                className="relative w-[300px] md:w-[360px]"
+                className="relative w-full max-w-[340px] md:w-[360px] md:max-w-none"
                 style={{
                   borderRadius: "28px",
                   padding: "10px",
@@ -203,6 +201,10 @@ export function MePage() {
                   </div>
                 </div>
               </TiltCard>
+            </div>
+
+            <div className="order-3 col-span-12 md:col-span-7 md:col-start-1 md:row-start-2">
+              {renderBio(t.bio)}
             </div>
           </div>
 
