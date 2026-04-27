@@ -145,7 +145,7 @@ export function WorldMap({
         ].join(","),
         boxShadow: "inset 0 1px 0 rgba(255,255,255,0.6), inset 0 0 0 1px rgba(31,68,51,0.04)",
         overscrollBehavior: "contain",
-        touchAction: "none",
+        touchAction: "pan-y pinch-zoom",
       }}
     >
       <div className="eyebrow text-[color:var(--ink-3)] absolute top-4 left-5 z-10 flex flex-wrap items-center gap-x-4 gap-y-1">

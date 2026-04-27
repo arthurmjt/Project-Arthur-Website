@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Caveat, Inter, JetBrains_Mono, Noto_Serif_SC } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { I18nProvider } from "@/components/providers/i18n-provider";
+import { TabProvider } from "@/components/providers/tab-provider";
+import { TopBar } from "@/components/top-bar";
+import { Footer } from "@/components/footer";
 import "./globals.css";
 
 const inter = Inter({
@@ -162,7 +166,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        {children}
+        <I18nProvider>
+          <TabProvider>
+            <div className="relative">
+              <TopBar />
+              {children}
+              <Footer />
+            </div>
+          </TabProvider>
+        </I18nProvider>
         <Analytics />
       </body>
     </html>

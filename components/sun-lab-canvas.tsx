@@ -524,7 +524,8 @@ function BciFlow({
     >
       <div className="eyebrow text-[color:var(--ink-3)] mb-6">{eyebrow}</div>
 
-      <div className="relative mx-auto w-full max-w-[760px] aspect-[16/9]">
+      <div className="overflow-x-auto -mx-6 md:-mx-8 px-6 md:px-8">
+        <div className="relative mx-auto w-full min-w-[640px] md:min-w-0 max-w-[760px] aspect-[16/9]">
         <svg
           viewBox="0 0 760 427"
           className="absolute inset-0 w-full h-full"
@@ -794,6 +795,7 @@ function BciFlow({
         {FLOW_TERMS.map((t) => (
           <FlowTag key={t.text} {...t} />
         ))}
+        </div>
       </div>
     </div>
   );

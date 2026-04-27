@@ -17,6 +17,7 @@
 }
 
 html, body { background: var(--ivory); color: var(--ink-2); }
+html, body { overflow-x: clip; }
 body {
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
   font-feature-settings: "ss01","cv11";
@@ -76,13 +77,17 @@ body {
 .chip svg { width: 18px; height: 18px; }
 
 .social-chip {
-  width: 56px; height: 56px;
+  width: 48px; height: 48px;
   display:inline-flex; align-items:center; justify-content:center;
   border-radius: 9999px;
   color: var(--ink-3);
   transition: color .3s ease;
 }
-.social-chip svg { width: 24px; height: 24px; }
+.social-chip svg { width: 22px; height: 22px; }
+@media (min-width: 768px) {
+  .social-chip { width: 56px; height: 56px; }
+  .social-chip svg { width: 24px; height: 24px; }
+}
 .social-chip[data-brand="email"]:hover     { color: #0072C6; }
 .social-chip[data-brand="linkedin"]:hover  { color: #0A66C2; }
 .social-chip[data-brand="github"]:hover    { color: #181717; }

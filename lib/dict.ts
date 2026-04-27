@@ -44,6 +44,7 @@ export type Publication = {
   leaderNote?: string;
   paperUrl?: string;
   posterUrl?: string;
+  codeUrl?: string;
   image?: { src: string; alt?: string };
 };
 export type Honor = { title: string; detail?: string };
@@ -162,7 +163,7 @@ export const DICT: Record<Lang, Dict> = {
         ".",
       ],
       [
-        "I grew up in Lanzhou, Gansu, in what I like to call a “mixed” family — if you count having grandparents from Tianjin, Shandong, Shanghai, and Dalian as a form of diversity. That upbringing gave me a lasting love for exploration. When I’m not working, you can probably find me scuba diving, skiing, hiking, or backpacking somewhere unfamiliar. As an avid photographer, I’m especially drawn to capturing the raw beauty of natural landscapes and wildlife.",
+        "I grew up in Lanzhou, Gansu, China, in what I like to call a “mixed” family — if you count having grandparents from Tianjin, Shandong, Shanghai, and Dalian as a form of diversity. That upbringing gave me a lasting love for exploration. When I’m not working, you can probably find me scuba diving, skiing, hiking, or backpacking somewhere unfamiliar. As an avid photographer, I’m especially drawn to capturing the raw beauty of natural landscapes and wildlife.",
       ],
     ],
     meQuote:
@@ -406,6 +407,7 @@ export const DICT: Record<Lang, Dict> = {
         leaderNote: "† Research Project Leader",
         paperUrl: "/media/CVPRW_2026.pdf",
         posterUrl: "/media/CVPRW_2026_Poster.jpg",
+        codeUrl: "https://github.com/arthurmjt/SMLP-KAN",
         image: {
           src: "/media/CVPRW_IMG.png",
           alt: "Attentive KAN — adaptive vs. redundant feature comparison",
@@ -494,7 +496,7 @@ export const DICT: Record<Lang, Dict> = {
         " 荣誉毕业。",
       ],
       [
-        "我在甘肃兰州长大，生在一个“混搭”家庭——如果把祖辈分别来自天津、山东、上海和大连算作一种多元的话。这样的成长让我从小就喜欢探索。不工作的时候，我可能在潜水、滑雪、徒步，或者背包去陌生的地方。作为一名摄影爱好者，我尤其喜欢记录自然景观与野生动物那种原始的美。",
+        "我在中国甘肃兰州长大，生在一个“混搭”家庭——如果把祖辈分别来自天津、山东、上海和大连算作一种多元的话。这样的成长让我从小就喜欢探索。不工作的时候，我可能在潜水、滑雪、徒步，或者背包去陌生的地方。作为一名摄影爱好者，我尤其喜欢记录自然景观与野生动物那种原始的美。",
       ],
     ],
     meQuote: "希望这个世界因为有我而多那么一点点不同，哪怕只有一点点。",
@@ -735,6 +737,7 @@ export const DICT: Record<Lang, Dict> = {
         leaderNote: "† 项目负责人 (Research Project Leader)",
         paperUrl: "/media/CVPRW_2026.pdf",
         posterUrl: "/media/CVPRW_2026_Poster.jpg",
+        codeUrl: "https://github.com/arthurmjt/SMLP-KAN",
         image: {
           src: "/media/CVPRW_IMG.png",
           alt: "Attentive KAN — 自适应特征 vs. 冗余特征对比",

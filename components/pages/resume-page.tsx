@@ -6,7 +6,7 @@ import { GrowthRings } from "@/components/growth-rings";
 import { SunLabCanvas } from "@/components/sun-lab-canvas";
 import { GuanLabCanvas } from "@/components/guan-lab-canvas";
 import { AmazonInternCanvas } from "@/components/amazon-intern-canvas";
-import { ChevronDown, FileText, Image as ImageIcon } from "lucide-react";
+import { ChevronDown, Code2, FileText, Image as ImageIcon } from "lucide-react";
 import type { EducationEntry, Publication, Ring } from "@/lib/dict";
 
 const hasCustomCanvas = (r: Ring) =>
@@ -149,7 +149,7 @@ function RingSection({
     <>
       <div className="eyebrow text-[color:var(--ink-3)]">{eyebrow}</div>
 
-      <div className="mt-12 grid grid-cols-12 gap-10 items-start">
+      <div className="mt-12 grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start">
         <div
           className={
             showRings
@@ -168,7 +168,7 @@ function RingSection({
                     onFocus={() => onRowHover(i)}
                     onBlur={onRowLeave}
                     onClick={() => onRowClick(i)}
-                    className={`w-full text-left py-5 border-b border-[color:var(--veil-2)] flex items-center gap-6 group transition-[transform,background-color,box-shadow,color] duration-200 ease-out hover:-translate-y-[1px] hover:bg-[rgba(31,68,51,0.025)] hover:shadow-[0_6px_18px_-8px_rgba(31,68,51,0.18)]${
+                    className={`w-full text-left py-4 md:py-5 border-b border-[color:var(--veil-2)] flex items-center gap-4 md:gap-6 group transition-[transform,background-color,box-shadow,color] duration-200 ease-out hover:-translate-y-[1px] hover:bg-[rgba(31,68,51,0.025)] hover:shadow-[0_6px_18px_-8px_rgba(31,68,51,0.18)]${
                       isMobileExpanded
                         ? " sticky top-[108px] z-20 bg-[color:var(--ivory)] md:static md:bg-transparent md:top-auto md:z-auto"
                         : ""
@@ -176,7 +176,7 @@ function RingSection({
                   >
                     {r.logo ? (
                       <span
-                        className="w-16 h-12 shrink-0 flex items-center justify-center transition-opacity"
+                        className="w-10 h-8 md:w-16 md:h-12 shrink-0 flex items-center justify-center transition-opacity"
                         style={{ opacity: highlighted ? 1 : 0.55 }}
                       >
                         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -188,7 +188,7 @@ function RingSection({
                       </span>
                     ) : (
                       <span
-                        className="eyebrow w-16 shrink-0 transition-colors text-center"
+                        className="eyebrow w-10 md:w-16 shrink-0 transition-colors text-center"
                         style={{
                           color: highlighted
                             ? "var(--orange-1)"
@@ -200,7 +200,7 @@ function RingSection({
                     )}
                     <span className="flex-1 min-w-0">
                       <span
-                        className={`f-display text-[22px] md:text-[24px] leading-tight block transition-colors ${
+                        className={`f-display text-[16px] md:text-[24px] leading-tight block transition-colors ${
                           highlighted
                             ? "text-[color:var(--ink)]"
                             : "text-[color:var(--ink-2)]"
@@ -209,7 +209,7 @@ function RingSection({
                       >
                         {r.role}
                       </span>
-                      <span className="eyebrow text-[color:var(--ink-3)] flex flex-col gap-0.5 mt-1 md:mt-0 md:block md:gap-0">
+                      <span className="eyebrow text-[color:var(--ink-3)] flex flex-col gap-0.5 mt-1 md:mt-0 md:block md:gap-0 min-w-0">
                         {r.org.split(" · ").map((part, idx, arr) => (
                           <span key={idx}>
                             {part}
@@ -222,13 +222,19 @@ function RingSection({
                     </span>
                     <span
                       aria-hidden
-                      className={`md:hidden mr-2 shrink-0 transition-[transform,color] duration-300 ease-out ${
+                      className={`md:hidden mr-4 md:mr-2 shrink-0 w-6 h-6 rounded-full border flex items-center justify-center transition-[background-color,border-color,color] duration-300 ease-out ${
                         isMobileExpanded
-                          ? "text-[color:var(--orange-1)]"
-                          : "-rotate-90 text-[color:var(--ink-3)]"
+                          ? "border-[color:var(--orange-1)] bg-[color:var(--orange-1)] text-[color:var(--ivory)]"
+                          : "border-[rgba(31,68,51,0.18)] bg-[rgba(255,255,255,0.6)] text-[color:var(--ink-2)]"
                       }`}
                     >
-                      <ChevronDown size={18} strokeWidth={2} />
+                      <ChevronDown
+                        size={12}
+                        strokeWidth={2.5}
+                        className={`transition-transform duration-300 ease-out ${
+                          isMobileExpanded ? "" : "-rotate-90"
+                        }`}
+                      />
                     </span>
                     <span
                       aria-hidden
@@ -378,7 +384,7 @@ function DetailPanel({ active, panelKey }: { active: Ring; panelKey: string }) {
           <p className="text-[14px] md:text-[15px] leading-[1.55] text-[color:var(--ink-2)] mb-5">
             {active.extraVideos.lead}
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
             {active.extraVideos.items.map((v, i) => (
               <div key={i}>
                 <p className="f-display text-[14px] md:text-[15px] leading-[1.35] text-[color:var(--ink)] mb-2">
@@ -533,13 +539,16 @@ function PublicationCard({ pub }: { pub: Publication }) {
           </p>
         )}
 
-        {(pub.paperUrl || pub.posterUrl) && (
+        {(pub.paperUrl || pub.posterUrl || pub.codeUrl) && (
           <div className="mt-5 flex flex-wrap gap-2.5">
             {pub.paperUrl && (
               <ActionButton href={pub.paperUrl} label="Paper" icon={<FileText size={14} />} />
             )}
             {pub.posterUrl && (
               <ActionButton href={pub.posterUrl} label="Poster" icon={<ImageIcon size={14} />} />
+            )}
+            {pub.codeUrl && (
+              <ActionButton href={pub.codeUrl} label="Code" icon={<Code2 size={14} />} />
             )}
           </div>
         )}

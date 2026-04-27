@@ -26,7 +26,7 @@ export function Footer() {
         <div className="flex flex-col items-center text-center gap-5 py-12 border-t border-[color:var(--veil-2)]">
           <div className="eyebrow text-[color:var(--ink-3)]">{t.contactEyebrow}</div>
 
-          <div className="mt-2 inline-flex glass rounded-full px-4 py-3 gap-2">
+          <div className="mt-2 flex flex-wrap justify-center max-w-full glass rounded-2xl md:rounded-full px-3 md:px-4 py-2.5 md:py-3 gap-1.5 md:gap-2">
             {socials.map((s) => (
               <motion.a
                 key={s.id}
