@@ -32,6 +32,7 @@ const TONE_BG = {
 
 // Natural Earth country names (as they appear in world-atlas 110m) → tone.
 // Hong Kong is merged into China at 110m resolution, so the tint comes from China.
+// Réunion, Mauritius, and the Faroe Islands have no polygon at 110m — they show as pins only.
 const COUNTRY_TONE: Record<string, keyof typeof TONE_BG> = {
   "United States of America": "current",
   "United States": "current",
@@ -46,8 +47,14 @@ const COUNTRY_TONE: Record<string, keyof typeof TONE_BG> = {
   Taiwan: "visited",
   Egypt: "visited",
   Kenya: "visited",
-  Namibia: "future",
+  Turkey: "visited",
+  Namibia: "visited",
+  "South Africa": "visited",
+  Malaysia: "visited",
   Philippines: "future",
+  Iceland: "future",
+  Greenland: "future",
+  Tanzania: "future",
 };
 
 export function WorldMap({
